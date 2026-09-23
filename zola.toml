@@ -1,0 +1,10 @@
+base_url = "https://jsfkit.github.io"
+title = "JSFKit"
+description = "Spreadsheets are made for everybody"
+
+[markdown]
+smart_punctuation = true
+
+[markdown.highlighting]
+theme = "catppuccin-mocha"
+error_on_missing_language = true
