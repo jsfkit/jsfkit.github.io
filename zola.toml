@@ -1,6 +1,6 @@
 base_url = "https://jsfkit.github.io"
 title = "JSFKit"
-description = "Spreadsheets are made for everybody"
+description = "Open-source TypeScript packages for reading, writing, and working with spreadsheets"
 
 [markdown]
 smart_punctuation = true

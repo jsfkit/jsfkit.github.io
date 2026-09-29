@@ -1,5 +1,45 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p>Hello, world.</p>
+
+<main>
+  <section id="intro">
+    <div class="header">
+      <h1>Spreadsheets are made for everybody</h1>
+      <p class="tagline">Open-source TypeScript packages for reading, writing, and working with&nbsp;spreadsheets</p>
+    </div>
+    <div class="boxes">
+      <div class="box1"></div>
+      <div class="box2"></div>
+      <div class="box3"></div>
+      <div class="box4"></div>
+      <div class="box5"></div>
+    </div>
+  </section>
+
+  <div id="packagelist">
+    <h2>Packages</h2>
+    {%- set packages = load_data(path="content/packages.yaml") -%}
+    {% for category in packages.categories %}
+      <div class="category {{ category.name | lower }}">
+        <h3>{{ category.name }}</h3>
+        {%- for package in category.packages %}
+          <div>
+            <h4>{{ package.name }}</h4>
+            <p>{{ package.description }}</p>
+            {%- if package.links or package.placeholder %}
+              <ul role="list">
+                {% if package.placeholder %}<li><em>{{ package.placeholder }}</em></li>{% endif %}
+                {% if package.links and package.links.github %}<li><a href="{{ package.links.github }}" title="GitHub repo for the {{ package.name }} package">GitHub</a></li>{% endif %}
+                {% if package.links and package.links.npm %}<li><a href="{{ package.links.npm }}" title="See the {{ package.name }} package on npm">npm</a></li>{% endif %}
+                {% if package.links and package.links.docs %}<li><a href="{{ package.links.docs }}" title="Read the docs for the {{ package.name }} package">Docs</a></li>{% endif %}
+              </ul>
+            {%- endif %}
+          </div>
+        {%- endfor %}
+      </div>
+    {%- endfor -%}
+  </div>
+</main>
+
 {% endblock content %}

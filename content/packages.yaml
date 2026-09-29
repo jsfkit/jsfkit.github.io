@@ -1,0 +1,43 @@
+categories:
+  - name: Spec
+    packages:
+      - name: "@jsfkit/types"
+        description: TypeScript types that describe the JSON Spreadsheet Format
+        links:
+          github: https://github.com/jsfkit/types
+          npm: https://npmjs.com/package/@jsfkit/types
+          docs: https://jsfkit.github.io/types
+
+  - name: Conversion
+    packages:
+      - name: xlsx-convert
+        description: Convert Excel XLSX files to JSF, the JSON Spreadsheet format
+        links:
+          github: https://github.com/borgar/xlsx-convert
+          npm: https://www.npmjs.com/package/@borgar/xlsx-convert
+
+      - name: "jsf2xlsx"
+        description: Convert JSON spreadsheets into XLSX files
+        placeholder: Coming soon ...
+
+  - name: Formulas
+    packages:
+      - name: fx
+        description: A tokeniser and parser for working with Excel formulas
+        links:
+          github: https://github.com/borgar/fx
+          npm: https://npmjs.com/package/@borgar/fx
+
+      - name: numfmt
+        description: Format numbers according to a specifier string as defined in ECMA-376, the Office Open XML format
+        links:
+          github: https://github.com/borgar/numfmt
+          npm: https://www.npmjs.com/package/numfmt
+
+  - name: Utils
+    packages:
+      - name: "@jsfkit/utils"
+        description: A collection of utilities that make JSF easier to work with
+        links:
+          github: https://github.com/jsfkit/utils
+          npm: https://npmjs.com/package/@jsfkit/utils

@@ -1,0 +1,318 @@
+:root {
+  --mondrian-ink: #000;
+  --mondrian-paper: #f5f1e8;
+  --mondrian-red: #e53935;
+  --mondrian-blue: #0b57d0;
+  --mondrian-yellow: #f2c94c;
+  --mondrian-grey: #c3cad3;
+  --border-width: 0.5rem;
+}
+
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("./fonts/inter-var.woff2") format("woff2");
+}
+@font-face {
+  font-family: Inter;
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("./fonts/inter-var-italic.woff2") format("woff2");
+}
+
+:root {
+  background: var(--mondrian-ink);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/***** Base styles ********************************************************************************/
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+body {
+  background:
+    linear-gradient(var(--mondrian-paper), var(--mondrian-paper)) content-box,
+    var(--mondrian-ink) border-box;
+  color: var(--mondrian-ink);
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: var(--border-width);
+  min-height: 100dvh;
+  font:
+    16px/1.5 Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+header {
+  background: var(--mondrian-ink);
+  border-bottom: var(--border-width) solid var(--mondrian-ink);
+  display: flex;
+  gap: var(--border-width);
+
+  .name {
+    background: var(--mondrian-paper);
+    flex: 1;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 900;
+    letter-spacing: -0.025em;
+    margin: 0;
+    padding: 0.75rem 5vw;
+  }
+
+  .github {
+    display: flex;
+
+    a {
+      background: var(--mondrian-yellow);
+      color: var(--mondrian-ink);
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      padding: 0 3rem;
+      text-decoration: none;
+      transition:
+        background-color 400ms,
+        color 400ms;
+
+      &::after {
+        content: "\00A0↗";
+      }
+
+      &:hover,
+      &:focus {
+        background: var(--mondrian-blue);
+        color: var(--mondrian-paper);
+      }
+    }
+  }
+}
+
+footer {
+  background: var(--mondrian-blue);
+  border-top: var(--border-width) solid var(--mondrian-ink);
+  color: var(--mondrian-paper);
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  padding: 2rem 5vw;
+
+  p {
+    margin: 0;
+  }
+
+  .sponsors {
+    text-align: right;
+
+    p {
+      opacity: 0.5;
+    }
+
+    a {
+      background: url(/grid-logo.svg) no-repeat;
+      background-size: cover;
+      display: block;
+      height: 44px;
+      margin-top: 1rem;
+      overflow: hidden;
+      text-indent: 9999px;
+      width: 120px;
+    }
+  }
+}
+
+/***** Home page **********************************************************************************/
+#intro {
+  display: flex;
+  background: var(--mondrian-ink);
+  border-bottom: var(--border-width) solid var(--mondrian-ink);
+  gap: var(--border-width);
+
+  .header {
+    background: var(--mondrian-paper);
+    flex: 2;
+    padding: 4rem 5vw;
+
+    h1 {
+      font-weight: 900;
+      font-size: clamp(2rem, 9vw, 8rem);
+      letter-spacing: -0.05em;
+      line-height: 0.8;
+      margin: 0;
+      text-wrap: balance;
+    }
+
+    .tagline {
+      margin: 2rem 0 0;
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      font-weight: bold;
+    }
+  }
+
+  .boxes {
+    flex: 1;
+
+    display: grid;
+    grid-template-columns: 1fr 0.6fr;
+    grid-template-rows: 2fr 1fr 1.6fr;
+    gap: var(--border-width);
+
+    .box1 {
+      grid-column: 1 / -1;
+      background: var(--mondrian-red);
+    }
+    .box2 {
+      background: var(--mondrian-paper);
+    }
+    .box3 {
+      background: var(--mondrian-blue);
+    }
+    .box4 {
+      background: var(--mondrian-yellow);
+    }
+  }
+}
+
+#packagelist {
+  h2 {
+    background: var(--mondrian-grey);
+    font-size: clamp(2rem, 4vw, 5rem);
+    line-height: 0.8;
+    letter-spacing: -0.05em;
+    margin: 0;
+    padding: 1rem 5vw;
+  }
+
+  .category {
+    background: var(--mondrian-ink);
+    border-top: var(--border-width) solid var(--mondrian-ink);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--border-width);
+
+    &.spec {
+      h3 {
+        background: var(--mondrian-red);
+        color: var(--mondrian-paper);
+      }
+
+      a:hover,
+      a:focus,
+      a:active {
+        background: var(--mondrian-red);
+        color: var(--mondrian-paper);
+      }
+    }
+    &.conversion {
+      h3 {
+        background: var(--mondrian-blue);
+        color: var(--mondrian-paper);
+      }
+
+      a:hover,
+      a:focus,
+      a:active {
+        background: var(--mondrian-blue);
+        color: var(--mondrian-paper);
+      }
+    }
+    &.formulas {
+      h3 {
+        background: var(--mondrian-yellow);
+      }
+
+      a:hover,
+      a:focus,
+      a:active {
+        background: var(--mondrian-yellow);
+      }
+    }
+    &.utils {
+      h3 {
+        background: var(--mondrian-ink);
+        color: var(--mondrian-paper);
+      }
+
+      a:hover,
+      a:focus,
+      a:active {
+        background: var(--mondrian-ink);
+        color: var(--mondrian-paper);
+      }
+    }
+
+    h3 {
+      font-size: clamp(1.5rem, 2vw, 2.5rem);
+      letter-spacing: -0.025em;
+      margin: 0;
+      padding: 3vw 5vw;
+
+      &::after {
+        content: "\00A0→";
+      }
+    }
+
+    div {
+      background: var(--mondrian-paper);
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 1rem;
+
+      h4 {
+        font-size: 1.5rem;
+        letter-spacing: -0.025em;
+        margin: 0;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      ul {
+        display: flex;
+        gap: 0.5rem;
+        list-style: none;
+        margin: auto 0 0;
+        padding: 3vh 0 0;
+
+        a {
+          border: 0.25rem solid var(--mondrian-ink);
+          color: var(--mondrian-ink);
+          display: block;
+          font-weight: bold;
+          padding: 0.5rem;
+          text-decoration: none;
+          transition:
+            background-color 400ms,
+            color 400ms;
+
+          &::after {
+            content: "\00A0↗";
+          }
+
+          &:hover,
+          &:focus,
+          &:active {
+            background: var(--mondrian-yellow);
+          }
+        }
+      }
+    }
+  }
+}

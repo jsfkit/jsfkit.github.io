@@ -2,10 +2,41 @@
 <html lang="{{ lang }}">
 <head>
   <meta charset="utf-8">
-  <title>{{ config.title }}</title>
+  <title>
+    {%- block title -%}
+      {%- if section and section.title -%}
+        {{ section.title | markdown(inline=true) | striptags }} —
+      {%- elif page and page.title -%}
+        {{ page.title | markdown(inline=true) | striptags }} —
+      {%- endif %}
+      {{ config.title -}}
+    {%- endblock -%}
+  </title>
+  <link href="{{ config.base_url }}/site.css?{{ get_hash(path="static/site.css", sha_type=256) }}" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="{{ config.base_url }}/logo.svg?{{ get_hash(path="static/logo.svg", sha_type=256) }}">
+  <meta name="viewport" content="width=device-width">
+  <meta property="og:title" content="{% if page and page.title %}{{ page.title | markdown(inline=true) | striptags }}{% elif section and section.title %}{{ section.title | markdown(inline=true) | striptags }}{% else %}{{ config.title }}{% endif %}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="{{ config.base_url }}/logo.svg">
+  <meta property="og:description" content="{{ config.description }}">
+  <meta property="og:url" content="{{ current_url }}">
+  <meta property="og:locale" content="{{ lang }}">
+  <meta property="og:site_name" content="{{ config.title }}">
+  <meta name="theme-color" content="#000000">
 </head>
 <body>
+  <header>
+    <div class="name">{{ config.title }}</div>
+    <div class="github"><a href="https://github.com/jsfkit">GitHub</a></div>
+  </header>
   {%- block content -%}
-  {%- endblock content %}
+  {%- endblock content -%}
+  <footer>
+    <p>© JSFKit contributors.</p>
+    <div class="sponsors">
+      <p>Sponsored by</p>
+      <div id="grid"><a href="https://grid.is/" title="GRID: the spreadsheet engine for agentic products">GRID</a></div>
+    </div>
+  </footer>
 </body>
 </html>
