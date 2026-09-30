@@ -13,6 +13,7 @@
     {%- endblock -%}
   </title>
   <link href="{{ config.base_url }}/site.css?{{ get_hash(path="static/site.css", sha_type=256) }}" rel="stylesheet">
+  <link rel="preload" href="{{ config.base_url }}/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="{{ config.base_url }}/logo.svg?{{ get_hash(path="static/logo.svg", sha_type=256) }}">
   <meta name="viewport" content="width=device-width">
   <meta property="og:title" content="{% if page and page.title %}{{ page.title | markdown(inline=true) | striptags }}{% elif section and section.title %}{{ section.title | markdown(inline=true) | striptags }}{% else %}{{ config.title }}{% endif %}">
