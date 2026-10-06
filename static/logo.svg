@@ -1,11 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#f5f1e8"/>
-  <rect width="20" height="16" x="12" fill="#e53935"/>
-  <rect width="12" height="16" y="16" fill="#0b57d0"/>
-  <rect width="8" height="16" x="24" y="16" fill="#f2c94c"/>
-  <g stroke="#000" stroke-width="2">
-    <line x1="0" y1="16" x2="32" y2="16"/>
-    <line x1="12" y1="0" x2="12" y2="32"/>
-    <line x1="23" y1="16" x2="23" y2="32"/>
-  </g>
+  <rect width="32" height="32" fill="#f3eee3" rx="6"/>
+  <rect width="9" height="9" x="3" y="3" fill="#dd2128"/>
+  <rect width="9" height="9" x="20" y="12" fill="#eebf3c"/>
+  <rect width="9" height="9" x="12" y="20" fill="#0d3ec5"/>
+  <path stroke="#111" stroke-width="3" d="M12 3v26m8-26v26M3 12h26M3 20h26"/>
 </svg>
